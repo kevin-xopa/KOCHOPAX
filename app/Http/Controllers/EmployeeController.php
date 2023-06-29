@@ -29,7 +29,7 @@ class EmployeeController extends Controller
      */
     public function store(StoreEmployeeRequest $request)
     {
-        print("jala");
+
     }
 
     /**
@@ -37,7 +37,7 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        //
+        return view('employees.Update');
     }
 
     /**

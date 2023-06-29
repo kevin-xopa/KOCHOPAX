@@ -30,4 +30,5 @@ Route::middleware([
     })->name('dashboard');
 
     Route::resource('employees', EmployeeController::class);
+    Route::get('employee/{id}', EmployeeCreate::class)->name('employee');
 });

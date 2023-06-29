@@ -10,6 +10,7 @@ use App\Http\Requests\StoreEmployeeRequest;
 
 class EmployeeCreate extends Component
 {
+    public $employee;
 
     public $key;
     public $name;
@@ -32,8 +33,9 @@ class EmployeeCreate extends Component
         'language' => 'nullable',
     ];
 
-    public function mount(Employee $employee){
-
+    public function mount($id = null)
+    {
+        $this->init($id);
     }
 
     public function render()
@@ -48,11 +50,52 @@ class EmployeeCreate extends Component
         $diferencia = $fechaActual->diff($fechaNacimiento);
         $age = $diferencia->y;
 
+
         $data = $this->validate();
         $data['age'] = $age;
+        if ($this->employee) {
+            $this->employee->update($data);
+            unset($data['key']);
+            unset($data['name']);
+            unset($data['birth_date']);
+            unset($data['sex']);
+            unset($data['base_salary']);
+            unset($data['age']);
+            EmployeesDetailTranslation::updateOrInsert(
+                ['employee_id' => $this->employee->id],
+                ['about_me' => $data["about_me"], 'hobbies' => $data["hobbies"], 'language' => $data["language"]]
+            );
+        } else {
+            $employee = Employee::create($data);
+            $data["employee_id"] = $employee["id"];
+            EmployeesDetailTranslation::create($data);
+        }
+    }
 
-        $employee = Employee::create($data);
-        $data["employee_id"] = $employee["id"];
-        EmployeesDetailTranslation::create($data);
+    private function init($id)
+    {
+        $employee = null;
+        if ($id) {
+            $employee = Employee::select(
+                'employees.*',
+                'employees_detail_translations.about_me',
+                'employees_detail_translations.hobbies',
+                'employees_detail_translations.language'
+            )->leftJoin('employees_detail_translations', 'employees_detail_translations.employee_id', 'employees.id')
+                ->where('employees.id', $id)->first();
+        }
+        $this->employee = $employee;
+
+        if ($this->employee) {
+            $this->key = $this->employee->key;
+            $this->name = $this->employee->name;
+            $this->age = $this->employee->age;
+            $this->birth_date = $this->employee->birth_date;
+            $this->sex = $this->employee->sex;
+            $this->base_salary = $this->employee->base_salary;
+            $this->about_me = $this->employee->about_me;
+            $this->hobbies = $this->employee->hobbies;
+            $this->language = $this->employee->language;
+        }
     }
 }

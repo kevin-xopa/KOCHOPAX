@@ -34,11 +34,9 @@
                         {{ $item->base_salary }}
                     </td>
                     <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{-- href="{{ route('employees.show') }}" --}}
-                        {{-- <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> --}}
-                        <x-button class="ml-3" wire:click="delete({{ $item }})">
-                            {{ __('Delete') }}
-                        </x-button>
+                        <a href="{{ route('employee', $item) }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-indigo-400 dark:border-indigo-600 text-sm font-medium leading-5 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out" >
+                            {{ __('Show') }}
+                        </a>
                         <x-danger-button class="ml-3" wire:click="delete({{ $item }})">
                             {{ __('Delete') }}
                         </x-danger-button>
