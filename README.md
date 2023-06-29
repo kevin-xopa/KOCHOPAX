@@ -1,67 +1,48 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Employee CRUD project in Laravel 9
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Project Purpose
+The purpose of this project is to create a CRUD application for managing employees in Laravel 9. The application will make use of a web service to determine the salary in foreign currency and provide a salary increase projection for a year and a half, considering a 4% increment every 4 months based on the base salary.
 
-## About Laravel
+## Getting Started
+To get started with the project, follow these steps:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---First of all create a database with the name you want, and set the environment variables of it in the .env
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. Install project dependencies by running the following command:
+    composer install
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+2. Install frontend dependencies by running the following command:
+    npm install
 
-## Learning Laravel
+3. Generate the application key by running the following command:
+    php artisan key:generate
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+4. Run the database migrations to set up the necessary database tables by running the following command:
+    php artisan migrate
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+5. Run the database sessions to populate some data into the database with the following command:
+    php artisan db:seed --class=UserSeeder
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+5. Run app:
+    php artisan serve
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Login Credentials
+To log in to the application, use the following credentials:
+- Email: admin@example.com
+- Password: password
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
 
-## Contributing
+## Technologies Used
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Laravel
+Laravel is a PHP web application framework that provides an elegant and expressive syntax. It aims to make the development process enjoyable and efficient by providing a wide range of features and conventions. Laravel follows the MVC (Model-View-Controller) architectural pattern, making it easy to organize code and separate concerns. It includes features like routing, database migration, ORM (Object-Relational Mapping), templating engine, and more.
 
-## Code of Conduct
+### Laravel Jetstream
+Laravel Jetstream is a robust scaffolding library that provides a starting point for Laravel applications. It offers a beautiful, responsive user interface for authentication, two-factor authentication, and API support out of the box. Jetstream utilizes the latest frontend technologies, such as Tailwind CSS and Alpine.js, to provide a modern development experience.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Laravel Livewire
+Laravel Livewire is a full-stack framework for Laravel applications that enables developers to build interactive user interfaces without writing JavaScript code. It combines the best parts of Laravel and Vue.js, allowing you to write dynamic components using PHP and Blade templates. Livewire simplifies the development process by handling server-side rendering, form validation, and real-time updates without the need for manually writing JavaScript code.
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# KOCHOPAX
+---
