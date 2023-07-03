@@ -17,8 +17,6 @@ class PublicEmployees extends Component
     public function mount()
     {
         $this->name = '';
-        // Configura la variable $showMenu según tus necesidades
-        $this->showMenu = false;
     }
 
 
