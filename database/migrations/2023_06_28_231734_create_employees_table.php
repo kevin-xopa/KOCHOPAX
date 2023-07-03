@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->string('key', 20)->unique();
-            $table->string('name', 50);
-            $table->string('last_name', 50);
-            $table->string('mother_last_name', 50);
+            $table->string('name', 300);
+            $table->string('last_name', 300);
+            $table->string('mother_last_name', 300);
             $table->integer('age');
             $table->date('birth_date');
             $table->enum('sex', ['Hombre', 'Mujer']);
