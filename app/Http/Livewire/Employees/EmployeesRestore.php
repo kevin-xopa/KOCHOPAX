@@ -5,10 +5,8 @@ namespace App\Http\Livewire\Employees;
 use Livewire\Component;
 use App\Models\Employee;
 use Livewire\WithPagination;
-use PDO;
-use PhpOption\None;
 
-class EmployeesList extends Component
+class EmployeesRestore extends Component
 {
     use WithPagination;
 
@@ -19,30 +17,26 @@ class EmployeesList extends Component
         $this->name = '';
     }
 
-
     public function render()
     {
-        $employees = Employee::orderBy('name', 'ASC');
+        $employees = Employee::onlyTrashed()->orderBy('name', 'ASC');
         if ($this->name) {
             $employees = $employees->where('name', 'like', '%' . $this->name . '%');
         }
 
         $employees = $employees->paginate(5);
-        return view('livewire.employees.employees-list', ['employees' => $employees]);
+        return view('livewire.employees.employees-restore', ['employees' => $employees]);
     }
 
-    public function delete(Employee $employee)
+
+    public function activate($employee)
     {
-        $employee->delete();
+        // dd($employee);
+        Employee::onlyTrashed()->where('key', $employee['key'])->restore();
     }
 
-    public function activate(Employee $employee)
+    public function permanent_delete($employee)
     {
-        $employee->restore();
-    }
-
-    public function permanent_delete(Employee $employee)
-    {
-        $employee->forceDelete();
+        Employee::onlyTrashed()->where('key', $employee['key'])->forceDelete();
     }
 }

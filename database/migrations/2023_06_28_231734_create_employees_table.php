@@ -13,13 +13,16 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->string('key', 100)->unique();
-            $table->string('name', 100);
+            $table->string('key', 20)->unique();
+            $table->string('name', 50);
+            $table->string('last_name', 50);
+            $table->string('mother_last_name', 50);
             $table->integer('age');
             $table->date('birth_date');
             $table->enum('sex', ['Hombre', 'Mujer']);
             $table->double('base_salary', 15, 8)->nullable()->default(0.0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

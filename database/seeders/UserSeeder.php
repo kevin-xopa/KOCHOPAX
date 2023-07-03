@@ -25,6 +25,8 @@ class UserSeeder extends Seeder
             DB::table('employees')->insert([
                 'key' => Str::random(4),
                 'name' => Str::random(10),
+                'last_name' => Str::random(10),
+                'mother_last_name' => Str::random(10),
                 'age' => 23,
                 'birth_date' => '2000-06-28',
                 'sex' => 'Mujer',

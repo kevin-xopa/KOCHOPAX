@@ -15,7 +15,7 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('employees.index') }}" :active="request()->routeIs('employees.index')">
+                    <x-nav-link href="{{ route('employees') }}" :active="request()->routeIs('employees')">
                         {{ __('Employees') }}
                     </x-nav-link>
                 </div>
@@ -105,7 +105,7 @@
                                 {{ __('Profile') }}
                             </x-dropdown-link>
 
-                            <x-dropdown-link href="{{ route('employees.index') }}">
+                            <x-dropdown-link href="{{ route('employees') }}">
                                 {{ __('Employees') }}
                             </x-dropdown-link>
 
@@ -149,7 +149,7 @@
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link href="{{ route('employees.index') }}" :active="request()->routeIs('employees.index')">
+            <x-responsive-nav-link href="{{ route('employees') }}" :active="request()->routeIs('employees')">
                 {{ __('Employees') }}
             </x-responsive-nav-link>
         </div>

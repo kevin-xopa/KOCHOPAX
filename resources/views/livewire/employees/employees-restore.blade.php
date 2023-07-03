@@ -1,16 +1,7 @@
 <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-        {{ __('Employees') }}
+        {{ __('Inactive Employees') }}
     </h2>
-    <br>
-    <a type="button" href="{{ route('employee.create') }}"
-        class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none focus:bg-gray-50 dark:focus:bg-gray-700 active:bg-gray-50 dark:active:bg-gray-700 transition ease-in-out duration-150">
-        New Employee
-    </a>
-    <a type="button" href="{{ route('employees.inactive') }}"
-        class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none focus:bg-gray-50 dark:focus:bg-gray-700 active:bg-gray-50 dark:active:bg-gray-700 transition ease-in-out duration-150">
-        Inactive Employees
-    </a>
 </x-slot>
 
 <div>
@@ -57,16 +48,16 @@
                             </td>
                             <td scope="row"
                                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                <a href="{{ route('employee', $item) }}"
+                                {{-- <a href="{{ route('employee', $item) }}"
                                     class="inline-flex items-center px-1 pt-1 border-b-2 border-indigo-400 dark:border-indigo-600 text-sm font-medium leading-5 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out">
                                     {{ __('More Info') }}
-                                </a>
-                                <x-button class="ml-3" wire:click="delete({{ $item }})">
-                                    {{ __('Inactivate') }}
+                                </a> --}}
+                                <x-button class="ml-3" wire:click="activate({{ $item }})">
+                                    {{ __('Activate') }}
                                 </x-button>
-                                {{-- <x-danger-button class="ml-3" wire:click="permanent_delete({{ $item }})">
+                                <x-danger-button class="ml-3" wire:click="permanent_delete({{ $item }})">
                                     {{ __('Delete') }}
-                                </x-danger-button> --}}
+                                </x-danger-button>
                             </td>
                         </tr>
                     @endforeach
